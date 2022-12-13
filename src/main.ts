@@ -16,20 +16,19 @@ XHR.addListener(XHR.ReadyState.OPENED, (xhr, uri) => {
   }
 });
 
-document.addEventListener("load", () => {
-  console.log(11111);
-});
-
+// 上下文菜单移动到容器外
 const contextMenu = $("#contextMenu")
 if (contextMenu) {
   $(".main_inner")?.insertAdjacentElement('beforebegin', contextMenu)
 }
 
+// 标签栏
 const tab = $(".panel .tab");
 if (tab) {
   $(".panel .header .info")?.insertAdjacentElement('beforebegin', tab)
 }
 
+// 侧边栏
 const header = $(".panel .header");
 if (header) {
   console.log(header);
