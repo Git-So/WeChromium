@@ -11,6 +11,7 @@ export default defineConfig({
         icon: 'https://res.wx.qq.com/a/wx_fed/assets/res/OTE0YTAw.png',
         namespace: 'sooo.site/wechromium',
         match: ['https://wx.qq.com/*', 'https://web.wechat.com/*'],
+        grant: ["unsafeWindow"]
       },
     }),
   ],
