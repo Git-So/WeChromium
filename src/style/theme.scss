@@ -1,0 +1,84 @@
+$themeColor: #07c160;
+$contentBgColor: #f5f5f5;
+$headerBgColor: #ebebeb;
+$panelBgColor: #ffffff;
+
+
+
+// 面板
+.panel {
+    background-color: $panelBgColor;
+
+    // 搜索栏
+    .search_bar {
+        padding: 1rem 0;
+
+        .frm_search {
+            background-color: $contentBgColor;
+        }
+    }
+
+    // 聊天列表
+    .nav_view {
+        top: 4rem;
+
+        .chat_list {
+            .ico_loading {
+                color: $themeColor;
+            }
+
+            .chat_item {
+                background-color: transparent;
+                border-bottom: none;
+
+                &.active {
+                    background-color: $themeColor;
+
+                    .info .nickname {
+                        color: #fff;
+                    }
+                }
+
+                .info .nickname {
+                    color: #000;
+                }
+
+                .ext .attr {
+                    font-size: 0.5rem;
+                }
+            }
+        }
+    }
+}
+
+
+
+// 聊天室
+#chatArea {
+    background-color: $contentBgColor;
+
+    // 上下线
+    .box_hd .title_wrap,
+    .box_ft {
+        border: none;
+    }
+
+    .box_bd.chat_bd {
+        border: 1px solid #e5e5e5;
+        border-width: 1px 0;
+    }
+
+    .action {
+        .btn_send {
+            background-color: $themeColor;
+            color: #fff;
+            border: none;
+        }
+    }
+}
+
+// 聊天室标题栏
+.box_hd .title_wrap {
+    margin: 0;
+    background-color: transparent;
+}
