@@ -17,6 +17,7 @@ body .login {
         content: "";
     }
 
+    // 侧边菜单
     .header {
         width: 2.8rem;
         background-color: $headerBgColor;
@@ -54,164 +55,177 @@ body .login {
                 &::after {
                     display: none;
                 }
-            }
-        }
-    }
 
-    div[ui-view="contentView"] {
-        flex-grow: 1;
-    }
-}
-
-// 面板
-.panel {
-    background-color: $panelBgColor;
-
-    // 菜单
-    #mmpop_system_menu {
-        top: unset !important;
-        left: -0.5rem !important;
-        bottom: 1rem !important;
-
-        .dropdown_menu {
-            border: none;
-        }
-    }
-
-    // 搜索栏
-    .search_bar {
-        width: 100%;
-        padding: 1rem 0;
-
-        .frm_search {
-            margin: 1rem;
-            background-color: $contentBgColor;
-        }
-
-        .recommendation {
-            width: 100%;
-            height: calc(100vh - 4rem);
-            background: $panelBgColor;
-            top: 4rem;
-            box-shadow: unset;
-
-            .contacts {
-                height: 100% !important;
-                max-height: unset;
-            }
-
-            .contact_title,
-            .contact_item {
-                background: transparent;
-                border: none;
-                color: #000;
-
-                .info .nickname {
-                    color: unset;
+                a.chat {
+                    i.web_wechat_tab_friends,i.web_wechat_tab_chat {
+                        filter: invert(1);
+                    }
+                    i.web_wechat_tab_friends_hl,i.web_wechat_tab_chat_hl {
+                        filter: unset;
+                    }
                 }
             }
         }
-
-
     }
 
-    // 聊天列表
-    .nav_view {
-        top: 4rem;
+    // 面板
+    .panel {
+        background-color: $panelBgColor;
 
-        .chat_list {
-            .ico_loading {
-                color: $themeColor;
+        // 菜单
+        #mmpop_system_menu {
+            top: unset !important;
+            left: -0.5rem !important;
+            bottom: 1rem !important;
+
+            .dropdown_menu {
+                border: none;
+            }
+        }
+
+        // 搜索栏
+        #search_bar.search_bar {
+            width: 100%;
+
+            i.web_wechat_search {
+                top: 1rem;
+                left: 1rem;
+                filter: invert(1);
             }
 
-            .chat_item {
-                background-color: transparent;
-                border-bottom: none;
+            .frm_search {
+                margin: 1rem;
+                background-color: $contentBgColor;
+                color: #000;
+            }
 
-                &.active {
-                    background-color: $themeColor;
+            .recommendation {
+                width: 100%;
+                height: calc(100vh - 4rem);
+                background: $panelBgColor;
+                top: 4rem;
+                box-shadow: unset;
+
+                .contacts {
+                    height: 100% !important;
+                    max-height: unset;
+                }
+
+                .contact_title,
+                .contact_item {
+                    background: transparent;
+                    border: none;
+                    color: #000;
 
                     .info .nickname {
-                        color: #fff;
+                        color: unset;
+                    }
+                }
+            }
+
+
+        }
+
+        // 聊天列表
+        .nav_view {
+            top: 4rem;
+
+            .chat_list {
+                .ico_loading {
+                    color: $themeColor;
+                }
+
+                .chat_item {
+                    background-color: transparent;
+                    border-bottom: none;
+
+                    &.active {
+                        background-color: $themeColor;
+
+                        .info .nickname {
+                            color: #fff;
+                        }
+                    }
+
+                    .info .nickname {
+                        color: #000;
+                    }
+
+                    .ext .attr {
+                        font-size: 0.5rem;
+                    }
+                }
+            }
+
+            .contact_list {
+                .contact_title {
+                    background-color: $panelBgColor;
+                    color: #000;
+                }
+
+                .contact_item {
+                    border: none;
+
+                    .info .nickname {
+                        color: #000;
                     }
                 }
 
-                .info .nickname {
-                    color: #000;
-                }
+                .active {
+                    background-color: $themeColor;
 
-                .ext .attr {
-                    font-size: 0.5rem;
+                    .contact_item .info .nickname {
+                        color: #FFF;
+                    }
                 }
             }
         }
+    }
 
-        .contact_list {
-            .contact_title {
-                background-color: $panelBgColor;
-                color: #000;
+    // 聊天室
+    div[ui-view="contentView"] {
+        flex-grow: 1;
+
+        #chatArea {
+            background-color: $contentBgColor;
+
+            // 聊天室标题栏
+            .box_hd .title_wrap {
+                margin: 0;
+                background-color: transparent;
             }
 
-            .contact_item {
+            // 上下线
+            .box_hd .title_wrap,
+            .box_ft {
                 border: none;
-
-                .info .nickname {
-                    color: #000;
-                }
             }
 
-            .active {
-                background-color: $themeColor;
+            .box_bd.chat_bd {
+                border: 1px solid #e5e5e5;
+                border-width: 1px 0;
+            }
 
-                .contact_item .info .nickname {
+            .content {
+                .bubble.bubble_primary {
+                    background-color: $themeColor;
                     color: #FFF;
+
+                    &:before,
+                    &.right:after {
+                        border-left-color: $themeColor;
+                    }
+                }
+
+            }
+
+            .action {
+                .btn_send {
+                    background-color: $themeColor;
+                    color: #fff;
+                    border: none;
                 }
             }
         }
     }
-}
-
-
-
-// 聊天室
-#chatArea {
-    background-color: $contentBgColor;
-
-    // 上下线
-    .box_hd .title_wrap,
-    .box_ft {
-        border: none;
-    }
-
-    .box_bd.chat_bd {
-        border: 1px solid #e5e5e5;
-        border-width: 1px 0;
-    }
-
-    .content {
-        .bubble.bubble_primary {
-            background-color: $themeColor;
-            color: #FFF;
-
-            &:before,
-            &.right:after {
-                border-left-color: $themeColor;
-            }
-        }
-
-    }
-
-    .action {
-        .btn_send {
-            background-color: $themeColor;
-            color: #fff;
-            border: none;
-        }
-    }
-}
-
-// 聊天室标题栏
-.box_hd .title_wrap {
-    margin: 0;
-    background-color: transparent;
 }
