@@ -3,19 +3,110 @@ $contentBgColor: #f5f5f5;
 $headerBgColor: #ebebeb;
 $panelBgColor: #ffffff;
 
+// 容器
+.main_inner {
+    display: flex;
 
+    &::after {
+        content: "";
+    }
+
+    .header {
+        width: 2.8rem;
+        background-color: $headerBgColor;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5rem;
+
+        .avatar {
+            padding: 0;
+        }
+
+        // 用户昵称
+        .info {
+            width: 100%;
+
+            .nickname .display_name {
+                display: none;
+            }
+        }
+
+        .tab {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 1rem 0;
+
+            &::after {
+                display: none;
+            }
+
+            .tab_item {
+                margin: 0.8rem 0;
+
+                &::after {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    div[ui-view="contentView"] {
+        flex-grow: 1;
+    }
+}
 
 // 面板
 .panel {
     background-color: $panelBgColor;
 
+    // 菜单
+    #mmpop_system_menu {
+        top: unset !important;
+        left: -0.5rem !important;
+        bottom: 1rem !important;
+
+        .dropdown_menu {
+            border: none;
+        }
+    }
+
     // 搜索栏
     .search_bar {
+        width: 100%;
         padding: 1rem 0;
 
         .frm_search {
+            margin: 1rem;
             background-color: $contentBgColor;
         }
+
+        .recommendation {
+            width: 100%;
+            height: calc(100vh - 4rem);
+            background: $panelBgColor;
+            top: 4rem;
+            box-shadow: unset;
+
+            .contacts {
+                height: 100% !important;
+                max-height: unset;
+            }
+
+            .contact_title,
+            .contact_item {
+                background: transparent;
+                border: none;
+                color: #000;
+
+                .info .nickname {
+                    color: unset;
+                }
+            }
+        }
+
+
     }
 
     // 聊天列表
@@ -48,6 +139,29 @@ $panelBgColor: #ffffff;
                 }
             }
         }
+
+        .contact_list {
+            .contact_title {
+                background-color: $panelBgColor;
+                color: #000;
+            }
+
+            .contact_item {
+                border: none;
+
+                .info .nickname {
+                    color: #000;
+                }
+            }
+
+            .active {
+                background-color: $themeColor;
+
+                .contact_item .info .nickname {
+                    color: #FFF;
+                }
+            }
+        }
     }
 }
 
@@ -66,6 +180,19 @@ $panelBgColor: #ffffff;
     .box_bd.chat_bd {
         border: 1px solid #e5e5e5;
         border-width: 1px 0;
+    }
+
+    .content {
+        .bubble.bubble_primary {
+            background-color: $themeColor;
+            color: #FFF;
+
+            &:before,
+            &.right:after {
+                border-left-color: $themeColor;
+            }
+        }
+
     }
 
     .action {
