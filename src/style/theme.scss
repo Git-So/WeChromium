@@ -3,6 +3,12 @@ $contentBgColor: #f5f5f5;
 $headerBgColor: #ebebeb;
 $panelBgColor: #ffffff;
 
+// 登录界面
+body .login {
+    min-width: unset;
+    min-height: unset;
+}
+
 // 容器
 .main_inner {
     display: flex;
