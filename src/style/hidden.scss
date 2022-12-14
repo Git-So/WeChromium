@@ -1,15 +1,17 @@
-// 取消聊天界面截图
-#tool_bar .web_wechat_screencut {
+// 去除无用块
+#tool_bar .web_wechat_screencut, // 取消聊天界面截图
+.panel .download_entry // 取消部分系统提示下载客户端
+{
   display: none;
 }
 
 // 登录页
 .login {
-    &>* {
-        display: none;
-    }
+  & > * {
+    display: none;
+  }
 
-    .login_box {
-        display: block;
-    }
+  .login_box {
+    display: block;
+  }
 }
