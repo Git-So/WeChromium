@@ -16,7 +16,7 @@ export default defineConfig({
         description: "微信网页版增强 Monkey 脚本,UOS密钥强登,界面优化贴合应用模式",
         icon: 'https://res.wx.qq.com/a/wx_fed/assets/res/OTE0YTAw.png',
         namespace: 'sooo.site/wechromium',
-        match: ['https://wx.qq.com/*', 'https://web.wechat.com/*'],
+        match: ['https://wx.qq.com/*', 'https://web.wechat.com/*', 'https://wx2.qq.com/*'],
         grant: ["unsafeWindow"],
         noframes: true,
       },
