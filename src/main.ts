@@ -1,6 +1,25 @@
-import { $ } from "./core/DOM";
+import { $, useDomWatch } from "./core/DOM";
+import { ref } from "./core/Ref";
 import { XHR } from "./core/XHR";
 import "./style.scss";
+
+// 元素变动
+const loginState = ref(false)
+useDomWatch('body', (mutations) => {
+  if (mutations.length < 1) return
+
+  // 登录状态
+  const currLoginState = !document.body.classList.contains('unlogin');
+  if (currLoginState != loginState.value) {
+    loginState.value = currLoginState
+    if (currLoginState) {
+      window.resizeTo(800, 600)
+    }
+    else {
+      window.resizeTo(380, 540)
+    }
+  }
+})
 
 // 微信跳转登录页
 if (location.pathname == "/" && location.search.indexOf("target=t") == -1) {
@@ -31,7 +50,6 @@ if (tab) {
 // 侧边栏
 const header = $(".panel .header");
 if (header) {
-  console.log(header);
   $(".main_inner")?.insertAdjacentElement('afterbegin', header)
 }
 

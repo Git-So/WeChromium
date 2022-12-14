@@ -2,3 +2,14 @@
 #tool_bar .web_wechat_screencut {
   display: none;
 }
+
+// 登录页
+.login {
+    &>* {
+        display: none;
+    }
+
+    .login_box {
+        display: block;
+    }
+}

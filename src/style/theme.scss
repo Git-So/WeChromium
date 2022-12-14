@@ -3,6 +3,9 @@ $contentBgColor: #f5f5f5;
 $headerBgColor: #ebebeb;
 $panelBgColor: #ffffff;
 
+body {
+    background: #fff;
+}
 // 登录界面
 body .login {
     min-width: unset;
