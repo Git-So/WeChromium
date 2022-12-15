@@ -10,7 +10,7 @@ useWindowWatch((_, force: boolean = true) => {
   const currLoginState = !document.body.classList.contains("unlogin");
   if (force || currLoginState != loginState.value) {
     loginState.value = currLoginState;
-    currLoginState ? resizeAndCenter(800, 600) : resizeAndCenter(380, 540);
+    currLoginState ? resizeAndCenter(1000, 600) : resizeAndCenter(380, 540);
   }
 }, true);
 
