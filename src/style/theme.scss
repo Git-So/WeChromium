@@ -64,10 +64,12 @@ body .login {
         }
 
         a.chat {
+          i.web_wechat_tab_public,
           i.web_wechat_tab_friends,
           i.web_wechat_tab_chat {
             filter: invert(1);
           }
+          i.web_wechat_tab_public_hl,
           i.web_wechat_tab_friends_hl,
           i.web_wechat_tab_chat_hl {
             filter: unset;
@@ -86,10 +88,6 @@ body .login {
       top: unset !important;
       left: -0.5rem !important;
       bottom: 1rem !important;
-
-      .dropdown_menu {
-        border: none;
-      }
     }
 
     // 搜索栏
@@ -187,51 +185,87 @@ body .login {
         }
       }
     }
+
+    // 文章列表
+    .read_list {
+      .just_for_bg,
+      .read_item {
+        &,
+        .read_item_hd {
+          background-color: transparent;
+          border: none;
+        }
+
+        &.active {
+          background-color: $themeColor;
+
+          .title {
+            color: #fff;
+          }
+        }
+
+        & .title {
+          color: #000;
+        }
+      }
+
+      .just_for_bg {
+        border-top: 1px solid $headerBgColor;
+      }
+    }
   }
 
   // 聊天室
   div[ui-view="contentView"] {
     flex-grow: 1;
 
+    .box,
     #chatArea {
       background-color: $contentBgColor;
+    }
 
-      // 聊天室标题栏
-      .box_hd .title_wrap {
-        margin: 0;
-        background-color: transparent;
-      }
+    // 聊天室标题栏
+    .box_hd .title_wrap {
+      margin: 0;
+      background-color: transparent;
+      border-bottom: 1px solid #e5e5e5;
+    }
 
-      // 上下线
-      .box_hd .title_wrap,
-      .box_ft {
-        border: none;
-      }
+    // 上下线
+    .box_ft {
+      border: none;
+    }
 
-      .box_bd.chat_bd {
-        border: 1px solid #e5e5e5;
-        border-width: 1px 0;
-      }
+    .box_bd.chat_bd {
+      border-bottom: 1px solid #e5e5e5;
+    }
 
-      .content {
-        .bubble.bubble_primary {
-          background-color: $themeColor;
-          color: #fff;
+    .content {
+      .bubble.bubble_primary {
+        background-color: $themeColor;
+        color: #fff;
 
-          &:before,
-          &.right:after {
-            border-left-color: $themeColor;
-          }
-        }
-      }
-
-      .action {
-        .btn_send {
-          background-color: $themeColor;
-          color: #fff;
-          border: none;
+        &:before,
+        &.right:after {
+          border-left-color: $themeColor;
         }
       }
     }
+
+    .action {
+      .btn_send {
+        background-color: $themeColor;
+        color: #fff;
+        border: none;
+      }
+    }
+  }
+}
+
+// 弹出菜单
+.main .dropdown_menu {
+  &,
+  li a {
+    border: none;
   }
 }
