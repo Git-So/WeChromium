@@ -144,6 +144,9 @@ body .login {
           background-color: transparent;
           border-bottom: none;
 
+          &:hover {
+            background-color: $contentBgColor;
+          }
           &.active {
             background-color: $themeColor;
 
