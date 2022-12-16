@@ -1,10 +1,16 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@types/angular': ^1.8.4
+  '@types/jquery': ^3.5.14
   sass: ^1.56.2
   typescript: ^4.9.3
   vite: ^3.2.4
   vite-plugin-monkey: ^2.9.3
+
+dependencies:
+  '@types/angular': 1.8.4
+  '@types/jquery': 3.5.14
 
 devDependencies:
   sass: 1.56.2
@@ -31,6 +37,20 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@types/angular/1.8.4:
+    resolution: {integrity: sha512-wPS/ncJWhyxJsndsW1B6Ta8D4mi97x1yItSu+rkLDytU3oRIh2CFAjMuJceYwFAh9+DIohndWM0QBA9OU2Hv0g==}
+    dev: false
+
+  /@types/jquery/3.5.14:
+    resolution: {integrity: sha512-X1gtMRMbziVQkErhTQmSe2jFwwENA/Zr+PprCkF63vFq+Yt5PZ4AlKqgmeNlwgn7dhsXEK888eIW2520EpC+xg==}
+    dependencies:
+      '@types/sizzle': 2.3.3
+    dev: false
+
+  /@types/sizzle/2.3.3:
+    resolution: {integrity: sha512-JYM8x9EGF163bEyhdJBpR2QX1R5naCJHC8ucJylJ3w9/CVBaskdQ8WqBf8MmQrd1kRvp/a4TS8HJ+bxzR7ZJYQ==}
+    dev: false
 
   /address/1.2.1:
     resolution: {integrity: sha512-B+6bi5D34+fDYENiH5qOlA0cV2rAGKuWZ9LeyUUehbXy8e0VS9e498yO0Jeeh+iM+6KbfudHTFjXw2MmJD4QRA==}

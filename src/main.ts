@@ -1,5 +1,5 @@
-import { $ } from "./core/DOM";
 import { ref } from "./core/Ref";
+import { ng, WxBodyScope } from "./core/Angular";
 import { resizeAndCenter, useWindowWatch } from "./core/Window";
 import { XHR } from "./core/XHR";
 import "./style.scss";
@@ -28,20 +28,33 @@ XHR.addListener(XHR.ReadyState.OPENED, (xhr, uri) => {
   }
 });
 
-// 上下文菜单移动到容器外
-const contextMenu = $("#contextMenu");
-if (contextMenu) {
-  $(".main_inner")?.insertAdjacentElement("beforebegin", contextMenu);
-}
+// 显示公众号
+let bodyScope = ng.element(document.body).scope() as WxBodyScope;
+bodyScope.isShowReader = false;
 
-// 标签栏
-const tab = $(".panel .tab");
-if (tab) {
-  $(".panel .header .info")?.insertAdjacentElement("beforebegin", tab);
-}
+// 界面调整
+(() => {
+  // 上下文菜单移动到容器外
+  $(".main_inner").before($(".main_inner"));
 
-// 侧边栏
-const header = $(".panel .header");
-if (header) {
-  $(".main_inner")?.insertAdjacentElement("afterbegin", header);
-}
+  // 标签栏
+  $(".panel .header .info").before($(".panel .tab"));
+
+  // 侧边栏
+  $(".main_inner").prepend($(".panel .header"));
+
+  // 默认标签选中
+  $(".tab .tab_item")
+    .find(
+      ".web_wechat_tab_chat_hl,.web_wechat_tab_friends_hl,.web_wechat_tab_public_hl"
+    )
+    .parent()
+    .parent()
+    .addClass("active");
+
+  // 标签选择
+  $(".tab").on("click", " .tab_item", function () {
+    $(".tab .tab_item").removeClass("active");
+    $(this as HTMLElement).addClass("active");
+  });
+})();

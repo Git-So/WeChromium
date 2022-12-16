@@ -1,7 +1,7 @@
 export interface RefImpl<T> {
-    value: T
+  value: T;
 }
 
 export function ref<T>(value: T): RefImpl<T> {
-    return { value }
+  return { value };
 }
